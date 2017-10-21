@@ -1,0 +1,23 @@
+package br.com.desafiosenior.dao;
+
+import java.sql.*;
+
+public class principal {
+	  public static void main(String[] args) {
+          Connection conexao = ObterConexao();
+	  }
+	  
+	  private static Connection ObterConexao() {
+          Connection conexao = null;
+          try {
+                   Class.forName("oracle.jdbc.driver.OracleDriver");
+                   conexao = DriverManager.getConnection(
+                                      "jdbc:oracle:thin:@luisferrarezi:1521:JavaDesafio", "system", "123");
+          } catch (ClassNotFoundException e) {
+                   e.printStackTrace();
+          } catch (SQLException e) {
+                   e.printStackTrace();
+          }
+          return conexao;
+	  }	  
+}

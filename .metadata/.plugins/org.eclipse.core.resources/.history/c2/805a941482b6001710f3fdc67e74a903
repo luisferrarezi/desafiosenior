@@ -1,0 +1,13 @@
+package br.com.desafiosenior.dao;
+
+import br.com.desafiosenior.view.*;
+
+public class Consultas {
+	public Consultas() {
+		
+	}
+	
+	public List<Cidade> getListaCapitais(){
+		
+	}
+}

@@ -1,0 +1,31 @@
+package br.com.desafiosenior.controller;
+
+import java.io.BufferedReader;
+
+public class ImportarCsv {
+
+	private static final String VIRGULA = ",";
+	
+	public void ImportarCsv() {		
+	}
+	
+	public boolean processaImportacao(String caminhoArquivo) {
+		try {
+		 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoArquivo)));
+	        String linha = null;
+	        while ((linha = reader.readLine()) != null) {
+	            String[] dadosUsuario = linha.split(VIRGULA);
+	            System.out.println(Arrays.toString(dadosUsuario));
+	            System.out.println("Nome: " + dadosUsuario[0]);
+	            System.out.println("País: " + dadosUsuario[1]);
+	            System.out.println("Fórum: " + dadosUsuario[2]);
+	            System.out.println("--------------------------");
+	        }
+	        reader.close();
+		} catch (Exception e) {
+			return false;
+		}
+		
+		return true;
+	}
+}

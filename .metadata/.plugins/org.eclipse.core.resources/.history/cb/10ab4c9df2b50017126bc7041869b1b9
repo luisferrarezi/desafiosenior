@@ -1,0 +1,12 @@
+package br.com.desafiosenior.controller;
+
+public class ImportarCsv {
+
+	public void ImportarCsv() {		
+	}
+	
+	public boolean processaImportacao(String caminhoArquivo) {
+		
+		return true;
+	}
+}

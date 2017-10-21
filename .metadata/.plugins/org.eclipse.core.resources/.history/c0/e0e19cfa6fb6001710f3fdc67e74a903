@@ -1,0 +1,28 @@
+package br.com.desafiosenior.dao;
+
+import java.sql.*;
+import java.util.HashMap;
+
+public class Importacao {
+	Conexao conexao;
+	
+	public Importacao() {
+		conexao = new Conexao();
+    }
+	
+	public void importarCidades(HashMap parametros) throws Exception{
+		Connection con = conexao.ObterConexao();
+		CallableStatement cs = con.prepareCall("{call SP_IMPORTAR_CIDADES(?,?,?,?,?,?,?,?,?,?)}");
+		
+		cs.setInt(1, (Integer) parametros.get("IBGE_ID"));
+		cs.setString(2, parametros.get("UF"));
+		cs.setString(3, parametros.get("NAME"));
+		cs.setString(4, parametros.get("CAPITAL"));
+		cs.setString(5, parametros.get("LON"));
+		cs.setString(6, parametros.get("LAT"));
+		cs.setString(7, parametros.get("NO_ACCENTS"));
+		cs.setString(8, parametros.get("ALTERNATIVE_NAMES"));
+		cs.setString(9, parametros.get("MICROREGION"));
+		cs.setString(10, parametros.get("MESOREGION"));
+	}
+}

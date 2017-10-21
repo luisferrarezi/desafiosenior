@@ -1,0 +1,9 @@
+package br.com.desafiosenior.model;
+
+public class Estado {
+	private String Id;
+	private String nome;
+	private String qtdCidades;
+	
+	public Estado() {}
+}

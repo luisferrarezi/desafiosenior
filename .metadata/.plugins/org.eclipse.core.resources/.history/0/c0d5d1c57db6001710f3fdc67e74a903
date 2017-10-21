@@ -1,0 +1,18 @@
+package br.com.desafiosenior.model;
+
+public class Cidade {
+	private String ibgeId;
+	private String nome;
+	private String capital;
+	private String lon;
+	private String lat;
+	private String noAccents;
+	private String alternativeNames;
+	private String ibgeId;
+	private String ibgeId;
+	private String ibgeId;
+	
+	public Cidade() {
+		
+	}
+}

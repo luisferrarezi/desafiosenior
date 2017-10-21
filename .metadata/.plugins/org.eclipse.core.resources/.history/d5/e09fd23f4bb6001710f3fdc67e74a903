@@ -1,0 +1,43 @@
+package br.com.desafiosenior.controller;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashMap;
+
+public class ImportarCsv {
+
+	private static final String VIRGULA = ",";
+	
+	public void ImportarCsv() {		
+	}
+	
+	public boolean processaImportacao(String caminhoArquivo) {
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(caminhoArquivo)));
+	        String linha = null;
+	        while ((linha = reader.readLine()) != null) {
+	            String[] dadosCidade = linha.split(VIRGULA);
+	            
+	            HashMap parametros = new HashMap();
+	            parametros.put("IBGE_ID", dadosCidade[0]);
+	            parametros.put("UF", dadosCidade[1]);
+	            parametros.put("", dadosCidade[2]);
+	            parametros.put("", dadosCidade[3]);
+	            parametros.put("", dadosCidade[4]);
+	            parametros.put("", dadosCidade[5]);
+	            parametros.put("", dadosCidade[6]);
+	            parametros.put("", dadosCidade[7]);
+	            parametros.put("", dadosCidade[8]);
+	            parametros.put("", dadosCidade[9]);
+
+	        }
+	        reader.close();
+	        
+	        return true;	        
+		} catch (Exception e) {
+			return false;
+		}
+	}
+}

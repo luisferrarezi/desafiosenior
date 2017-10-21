@@ -1,0 +1,50 @@
+package br.com.desafiosenior.model;
+
+public class Cidade {
+	private String ibgeId;
+	private String nome;
+	private String capital;
+	private String lon;
+	private String lat;
+	private String noAccents;
+	private String alternativeNames;
+	private String uf;
+	private String microRegion;
+	private String mesoRegion;
+	
+	public Cidade() {
+		
+	}
+
+	public String getIbgeId() {
+		return ibgeId;
+	}
+
+	public void setIbgeId(String ibgeId) {
+		this.ibgeId = ibgeId;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	private String getCapital() {
+		return capital;
+	}
+
+	private void setCapital(String capital) {
+		this.capital = capital;
+	}
+
+	public String getLon() {
+		return lon;
+	}
+
+	public void setLon(String lon) {
+		this.lon = lon;
+	}
+}

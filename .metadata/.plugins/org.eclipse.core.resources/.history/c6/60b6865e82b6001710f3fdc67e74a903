@@ -1,0 +1,47 @@
+package br.com.desafiosenior.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import br.com.desafiosenior.view.Cidade;
+
+public class Consultas {	
+	
+	public Consultas() {
+		
+	}
+	
+	public List<Cidade> getListaCapitais(){
+		try {
+		     Conexao conexao = new Conexao();
+			 Connection con = conexao.ObterConexao();			
+			
+	         List<Cidade> contatos = new ArrayList<Cidade>();
+	         PreparedStatement stmt = con.prepareStatement("select * from contatos");
+	         ResultSet rs = stmt.executeQuery();
+	 
+	         while (rs.next()) {
+	             Cidade cidade = new Cidade();
+	             contato.setId(rs.getLong("id"));
+	             contato.setNome(rs.getString("nome"));
+	             contato.setEmail(rs.getString("email"));
+	             contato.setEndereco(rs.getString("endereco"));
+	 
+	             // montando a data através do Calendar
+	             Calendar data = Calendar.getInstance();
+	             data.setTime(rs.getDate("dataNascimento"));
+	             contato.setDataNascimento(data);
+	 
+	             // adicionando o objeto à lista
+	             contatos.add(contato);
+	         }
+	         rs.close();
+	         stmt.close();
+	         return contatos;
+	     } catch (SQLException e) {
+	         throw new RuntimeException(e);
+	     }
+	}
+}

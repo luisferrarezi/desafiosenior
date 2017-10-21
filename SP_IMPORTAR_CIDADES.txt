@@ -1,0 +1,59 @@
+create or replace PROCEDURE SP_IMPORTAR_CIDADES (vIBGE_ID           number,
+                                                 vUF                char,
+                                                 vNAME              varchar,
+                                                 vCAPITAL           varchar,
+                                                 vLON               varchar, 
+                                                 vLAT               varchar, 
+                                                 vNO_ACCENTS        varchar, 
+                                                 vALTERNATIVE_NAMES varchar, 
+                                                 vMICROREGION       varchar, 
+                                                 vMESOREGION        varchar)
+as
+    vESTADO_ID      number;                                                 
+    vMICROREGION_ID number;                                                 
+    vMESOREGION_ID  number;                                                 
+    vCAPITALGRAVADO char(1);
+BEGIN    
+    select max(ID)
+      into vESTADO_ID
+      from ESTADO
+     where UF = vUF;
+     
+    if (vESTADO_ID is null) then
+       vESTADO_ID := ESTADO_SEQ.nextval;
+        
+       insert into ESTADO (ID, UF) values (vESTADO_ID,vUF);
+    end if;
+     
+    select max(ID)
+      into vMICROREGION_ID
+      from MICROREGION
+     where MICROREGION = vMICROREGION;
+     
+    if (vMICROREGION_ID is null) then
+       vMICROREGION_ID := MICROREGION_SEQ.nextval;
+        
+       insert into MICROREGION (ID, MICROREGION) values (vMICROREGION_ID,vMICROREGION);
+    end if;     
+     
+    select max(ID)
+      into vMESOREGION_ID
+      from MESOREGION
+     where MESOREGION = vMESOREGION;
+     
+    if (vMESOREGION_ID is null) then
+       vMESOREGION_ID := MESOREGION_SEQ.nextval;
+        
+       insert into MESOREGION (ID, MESOREGION) values (vMESOREGION_ID,vMESOREGION);
+    end if;          
+     
+    if (vCAPITAL = 'TRUE') then
+        vCAPITALGRAVADO := 'S';
+    else    
+        vCAPITALGRAVADO := 'N';
+    end if;
+    
+    insert into CIDADE (ibge_id, nome, capital, lon, lat, no_accents, alternative_names, estado_id_fk, microregion_id_fk, mesoregion_id_fk) 
+                values (vIBGE_ID, vNAME, vCAPITALGRAVADO, vLON, vLAT, vNO_ACCENTS, vALTERNATIVE_NAMES, vESTADO_ID, vMICROREGION_ID, vMESOREGION_ID);     
+commit;     
+END SP_IMPORTAR_CIDADES;

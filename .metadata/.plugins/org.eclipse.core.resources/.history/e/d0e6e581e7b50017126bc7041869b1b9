@@ -1,0 +1,89 @@
+package br.com.desafiosenior.view;
+
+import javax.swing.*;
+
+public class Tela extends JFrame {
+	
+	    JLabel lb_placa, lb_renavan, lb_cor, lb_marca, lb_ano_fab, lb_ano_mod, lb_chassi, lb_preco, lb_modelo;
+	    JTextField tf_renavan, tf_ano_fab, tf_ano_mod, tf_chassi, tf_preco, tf_modelo, tf_placa;
+	    JComboBox cb_cor, cb_marca;
+	    JButton bt_salvar, bt_limpar, bt_fechar;
+	    Tela obj_veiculo = new Tela();
+	    private void FormPrincipal(){
+	        setTitle("Cadastro de Veículos");	 
+	        setSize(550, 450);
+	        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	        lb_placa        = new JLabel("Placa");
+	        lb_marca        = new JLabel("Marca");
+	        lb_ano_fab      = new JLabel("Ano Fabricação");
+	        lb_ano_mod      = new JLabel("Ano Modelo");
+	        lb_chassi       = new JLabel("Chassi");
+	        lb_preco        = new JLabel("Preço de Locação");
+	        lb_cor          = new JLabel("Cor");
+	        lb_renavan      = new JLabel("Renavan");
+	        lb_modelo       = new JLabel("Modelo");
+	        tf_renavan      = new JTextField("");        
+	        tf_ano_fab      = new JTextField("");
+	        tf_ano_mod      = new JTextField("");
+	        tf_chassi       = new JTextField("");
+	        tf_preco        = new JTextField("");
+	        tf_modelo       = new JTextField("");
+	        tf_placa        = new JTextField("");
+	        cb_cor          = new JComboBox();
+	        cb_marca        = new JComboBox();
+	        bt_salvar       = new JButton("Salvar");
+	        bt_limpar       = new JButton("Limpar");
+	        bt_fechar       = new JButton("Fechar");
+	        cb_cor.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Selecione a Cor","Amarelo", "Azul", "Branco", "Cinza",
+	                                                                             "Grafite", "Prata", "Preto", "Verde", "Vermelho"}));
+	        cb_marca.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Selecione a Marca","Ford", "Chevrolet", "Toyota", "Wolkswagem",
+	                                                                             "Fiat", "Honda"}));
+	        getContentPane().setLayout(null);
+	        getContentPane().add(lb_placa);
+	        getContentPane().add(lb_ano_fab);
+	        getContentPane().add(lb_ano_mod);
+	        getContentPane().add(lb_chassi);
+	        getContentPane().add(lb_cor);        
+	        getContentPane().add(lb_preco);
+	        getContentPane().add(lb_renavan);
+	        getContentPane().add(lb_modelo);
+	        getContentPane().add(lb_marca);
+	        getContentPane().add(cb_cor);
+	        getContentPane().add(cb_marca);
+	        getContentPane().add(tf_ano_fab);
+	        getContentPane().add(tf_ano_mod);
+	        getContentPane().add(tf_chassi);        
+	        getContentPane().add(tf_preco);
+	        getContentPane().add(tf_placa);
+	        getContentPane().add(tf_renavan);
+	        getContentPane().add(tf_modelo);
+	        getContentPane().add(bt_salvar);
+	        getContentPane().add(bt_limpar);
+	        getContentPane().add(bt_fechar);
+	        lb_placa        .setBounds(20, 20, 100, 15);
+	        tf_placa        .setBounds(20, 40, 80, 25);
+	        lb_renavan      .setBounds(115,20, 100, 15);
+	        tf_renavan      .setBounds(115,40, 150, 25);
+	        lb_chassi       .setBounds(20, 70, 100, 15);
+	        tf_chassi       .setBounds(20, 90, 150, 25);
+	        lb_marca        .setBounds(20, 120,300, 15);
+	        cb_marca        .setBounds(20, 140,250, 25);
+	        lb_modelo       .setBounds(280,120,150, 15);
+	        tf_modelo       .setBounds(280,140,200, 25);
+	        lb_cor          .setBounds(20,170,200, 15);
+	        cb_cor          .setBounds(20,190,250, 25);
+	        lb_ano_fab      .setBounds(20,220,150, 15);
+	        tf_ano_fab      .setBounds(20,240,80, 25);
+	        lb_ano_mod      .setBounds(120,220,150, 15);
+	        tf_ano_mod      .setBounds(120,240,80, 25);
+	        lb_preco        .setBounds(20,270,150, 15);
+	        tf_preco        .setBounds(20,290,120, 25);
+	        bt_salvar       .setBounds(20,340,80, 30);
+	        bt_limpar       .setBounds(105,340,80, 30);
+	        bt_fechar       .setBounds(190,340,80, 30);
+	    }
+	    
+	    public void Tela() {
+	    	FormPrincipal();
+	    }
+}

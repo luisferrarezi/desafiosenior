@@ -1,0 +1,31 @@
+package br.com.desafiosenior.controller;
+
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import br.com.desafiosenior.model.Cidade;
+
+import br.com.desafiosenior.dao.Consultas;
+
+public class CidadeControl {
+	public CidadeControl() {}
+	
+	public void getListaCapitais(JList lista) {
+		Consultas consultas = new Consultas();
+		
+		List<Cidade> listaCapitais = consultas.getListaCapitais();
+		DefaultListModel modelo = new DefaultListModel();
+		
+		for (Cidade cidade : listaCapitais) {
+			String linha = cidade.getIbgeId() + ',' +cidade.getUf() + ',' +cidade.getNome() + ',' +
+					       cidade.getCapital() + ',' +
+					       cidade.getLon() + ',' +cidade.getLat() + ',' +cidade.getNoAccents() +',' +
+					       cidade.getAlternativeNames() + ',' +cidade.getMicroRegion() + ',' +cidade.getMesoRegion();
+			
+			modelo.addElement(linha);
+		}
+		
+		lista.setModel(modelo);
+	}
+}

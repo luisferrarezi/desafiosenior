@@ -1,0 +1,21 @@
+package br.com.desafiosenior.dao;
+
+import java.sql.*;
+import java.util.HashMap;
+
+public class Importacao {
+	Conexao conexao;
+	
+	public Importacao() {
+		conexao = new Conexao();
+    }
+	
+	public void importarCidades(HashMap parametros) {
+		try {
+			Connection con = conexao.ObterConexao();
+			con.prepareCall("{call SP_IMPORTAR_CIDADES(?,?,?,?,?,?,?,?,?,?)}");
+		} catch (Exception e) {
+			
+		}
+	}
+}

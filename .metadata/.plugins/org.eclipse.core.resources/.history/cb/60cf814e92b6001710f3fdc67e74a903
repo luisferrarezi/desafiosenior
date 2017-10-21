@@ -1,0 +1,51 @@
+package br.com.desafiosenior.controller;
+
+import java.util.List;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+
+import br.com.desafiosenior.dao.Consultas;
+import br.com.desafiosenior.model.Estado;
+
+public class EstadoControl {
+	public EstadoControl() {}
+	
+	public void getListaEstadosMenorMaiorQtdCidades(JList lista) {
+		DefaultListModel modelo = new DefaultListModel();		
+		lista.setModel(modelo);
+		
+		Consultas consultas = new Consultas();
+		
+		List<Estado> listaEstados = consultas.getListaEstados(true);
+		
+		for (Estado estado : listaEstados) {
+			String linha = estado.getNome() + " , " + estado.getQtdCidades();
+			
+			modelo.addElement(linha);
+		}
+		
+		lista.setModel(modelo);
+	}
+	
+	public void getListaTodosEstados(JList lista) {
+		DefaultListModel modelo = new DefaultListModel();		
+		lista.setModel(modelo);
+		
+		Consultas consultas = new Consultas();
+		
+		List<Estado> listaEstados = consultas.getListaEstados(false);
+		
+		for (Estado estado : listaEstados) {
+			String linha = estado.getNome() + " , " + estado.getQtdCidades();
+			
+			modelo.addElement(linha);
+		}
+		
+		lista.setModel(modelo);
+	}	
+	
+	private void setListaEstado(JList lista, List<Estado> listaEstados) {
+		
+	}
+}

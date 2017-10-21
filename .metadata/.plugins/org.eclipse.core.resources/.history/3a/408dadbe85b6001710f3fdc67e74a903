@@ -1,0 +1,7 @@
+package br.com.desafiosenior.controller;
+
+public class CidadeControl {
+	public CidadeControl() {}
+	
+	
+}

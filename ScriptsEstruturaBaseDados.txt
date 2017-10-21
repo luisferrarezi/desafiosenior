@@ -1,0 +1,70 @@
+create table estado (
+    id number(8,0) not null,
+    uf char(2) not null,
+    constraint pk_estado primary key (id)
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+create table microregion (
+    id number(8,0) not null,
+    microregion varchar(200) not null,
+    constraint pk_microregion primary key (id)
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+create table mesoregion (
+    id number(8,0) not null,
+    mesoregion varchar(200) not null,
+    constraint pk_mesoregion primary key (id)
+)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+create table cidade (
+    ibge_id number(8,0) not null,
+    nome varchar(200) not null,
+    capital char(1), 
+    lon varchar(40) not null, 
+    lat varchar(40) not null,
+    no_accents varchar(200) not null, 
+    alternative_names varchar(200),
+    estado_id_fk number(8,0) not null,
+    microregion_id_fk number(8,0) not null,
+    mesoregion_id_fk number(8,0) not null,
+    
+    constraint pk_cidade primary key (ibge_id),
+    constraint fk_cidade_estado foreign key (estado_id_fk) references estado (id),
+    constraint fk_cidade_microregion foreign key (microregion_id_fk) references microregion (id),
+    constraint fk_cidade_mesoregion foreign key (mesoregion_id_fk) references mesoregion (id)
+)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+create sequence ESTADO_SEQ
+minvalue 1
+maxvalue 9999999999
+start with 1
+increment by 1
+nocache
+cycle;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+create sequence MICROREGION_SEQ
+minvalue 1
+maxvalue 9999999999
+start with 1
+increment by 1
+nocache
+cycle;
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+create sequence MESOREGION_SEQ
+minvalue 1
+maxvalue 9999999999
+start with 1
+increment by 1
+nocache
+cycle;

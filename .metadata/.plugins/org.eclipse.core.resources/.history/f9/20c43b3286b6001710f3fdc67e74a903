@@ -1,0 +1,13 @@
+package br.com.desafiosenior.controller;
+
+import javax.swing.JList;
+
+public class CidadeControl {
+	public CidadeControl() {}
+	
+	public void getListaCapitais(JList lista) {
+		Consultas consultas = new Consultas();
+		
+		List listaCapitais = 
+	}
+}

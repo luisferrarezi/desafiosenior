@@ -1,0 +1,5 @@
+package br.com.desafiosenior.model;
+
+public class Estado {
+	public Estado() {}
+}

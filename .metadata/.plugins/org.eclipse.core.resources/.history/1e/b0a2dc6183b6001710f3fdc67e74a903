@@ -1,0 +1,55 @@
+package br.com.desafiosenior.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import br.com.desafiosenior.model.Cidade;
+
+public class Consultas {	
+	
+	public Consultas() {
+		
+	}
+	
+	public List<Cidade> getListaCapitais(){
+		try {
+		     Conexao conexao = new Conexao();
+			 Connection con = conexao.ObterConexao();			
+			
+	         List<Cidade> cidades = new ArrayList<Cidade>();
+	         PreparedStatement stmt = con.prepareStatement("select c.ibge_id, c.nome, c.capital, c.lon, c.lat, c.no_accents, c.alternative_names, e.uf, mr.microregion, me.mesoregion\r\n" + 
+	         		"  from cidade c\r\n" + 
+	         		" inner join estado e on e.id = estado_id_fk \r\n" + 
+	         		" inner join microregion mr on mr.id = microregion_id_fk \r\n" + 
+	         		" inner join mesoregion me on me.id = mesoregion_id_fk \r\n" + 
+	         		" where capital = 'S'\r\n" + 
+	         		"order by c.nome");
+	         ResultSet rs = stmt.executeQuery();
+	 
+	         while (rs.next()) {
+	             Cidade cidade = new Cidade();
+	             cidade.setIbgeId(ibgeId);
+	             cidade.setNome(nome);
+	             cidade.setCapital(capital);
+	             cidade.setLon(lon);
+	             cidade.setLat(lat);
+	             cidade.setNoAccents(noAccents);
+	             cidade.setAlternativeNames(alternativeNames);
+	             cidade.setUf(uf);
+	             cidade.setMicroRegion(microRegion);
+	             cidade.setMesoRegion(mesoRegion);
+	 
+	             cidades.add(cidade);
+	         }
+	         rs.close();
+	         stmt.close();
+	         return cidades;
+	     } catch (SQLException e) {
+	         throw new RuntimeException(e);
+	     }
+	}
+}

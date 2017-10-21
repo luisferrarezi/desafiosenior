@@ -1,0 +1,9 @@
+package br.com.desafiosenior.model;
+
+public class Cidade {
+	public Cidade() {
+		
+	}
+	
+	
+}

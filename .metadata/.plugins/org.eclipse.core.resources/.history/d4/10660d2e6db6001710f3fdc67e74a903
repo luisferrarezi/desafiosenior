@@ -1,0 +1,11 @@
+package br.com.desafiosenior.dao;
+
+public class Importacao {
+	public Importacao() {
+		  
+    }
+	
+	public void importarCidades(HashMap parametros) {
+		
+	}
+}

@@ -1,0 +1,7 @@
+package br.com.desafiosenior.dao;
+
+public class Importacao {
+	public Importacao() {
+		  
+    }
+}

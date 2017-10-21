@@ -1,0 +1,9 @@
+package br.com.desafiosenior.dao;
+
+import java.sq.*;
+
+public class principal {
+	  public static void main(String[] args) {
+          Connection conexao = ObterConexao();
+	  }
+}

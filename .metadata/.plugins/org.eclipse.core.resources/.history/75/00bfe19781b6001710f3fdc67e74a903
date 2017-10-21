@@ -1,0 +1,9 @@
+package br.com.desafiosenior.dao;
+
+public class Consultas {
+	public Consultas() {
+		
+	}
+	
+	
+}
